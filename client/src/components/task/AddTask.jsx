@@ -60,6 +60,7 @@ const AddTask = ({ open, setOpen, task }) => {
     try {
       const newData = {
         ...data,
+        deadline: data.date,
         assets: [...URLS, ...uploadedFileURLs],
         team,
         stage,
@@ -145,18 +146,20 @@ const AddTask = ({ open, setOpen, task }) => {
               />
 
               <div className='w-full'>
-                <Textbox
-                  placeholder='Date'
-                  type='date'
-                  name='date'
-                  label='Task Date'
-                  className='w-full rounded'
-                  register={register("date", {
-                    required: "Date is required!",
-                  })}
-                  error={errors.date ? errors.date.message : ""}
-                />
-              </div>
+              <Textbox
+                placeholder='Date'
+                type='date'
+                name='date'
+                label='Task Date'
+                className='w-full rounded'
+                register={register("date", {
+                  required: "Date is required!",
+                })}
+                min={new Date().toISOString().split("T")[0]} // ✅ prevent past dates
+                error={errors.date ? errors.date.message : ""}
+              />
+            </div>
+
             </div>
 
             <div className='flex gap-4'>

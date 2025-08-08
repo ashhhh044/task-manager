@@ -1,13 +1,13 @@
 import mongoose, { Schema } from "mongoose";
-
-const taskSchema = new Schema(
+const taskSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true },
-    date: { type: Date, default: new Date() },
-    priority: {
-      type: String,
-      default: "normal",
-      enum: ["high", "medium", "normal", "low"],
+      title: { type: String, required: true },
+      date: { type: Date, default: new Date() },
+      deadline: Date,    
+      priority: {
+        type: String,
+        default: "normal",
+        enum: ["high", "medium", "normal", "low"],
     },
     stage: {
       type: String,

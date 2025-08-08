@@ -48,13 +48,10 @@ const Login = () => {
               Manage all your task in one place!
             </span>
             <p className='flex flex-col gap-0 md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center text-blue-700'>
-              <span>Cloud-Based</span>
               <span>Task Manager</span>
             </p>
 
-            <div className='cell'>
-              <div className='circle rotate-in-up-left'></div>
-            </div>
+            
           </div>
         </div>
 
@@ -98,9 +95,9 @@ const Login = () => {
                 error={errors.password ? errors.password.message : ""}
               />
 
-              <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
+              {/* <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
                 Forget Password?
-              </span>
+              </span> */}
 
               {isLoading ? (
                 <Loading/>

@@ -5,7 +5,7 @@ const TASKS_URL = "/task";
 export const taskApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
 
-    // 📊 Dashboard stats
+    //  Dashboard stats
     getDashboardStats: builder.query({
       query: () => ({
         url: `${TASKS_URL}/dashboard`,
@@ -14,7 +14,6 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       }),
     }),
 
-    // 📋 Get all tasks with filters
     getAllTask: builder.query({
       query: ({ strQuery, isTrashed, search }) => ({
         url: `${TASKS_URL}?stage=${strQuery}&isTrashed=${isTrashed}&search=${search}`,
@@ -22,7 +21,7 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       }),
     }),
 
-    // ➕ Create new task
+    //  Create new task
     createTask: builder.mutation({
       query: (data) => ({
         url: `${TASKS_URL}/create`,
@@ -32,7 +31,7 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       })
     }),
 
-    // 🧬 Duplicate task
+    //  Duplicate task
     duplicateTask: builder.mutation({
       query: (id) => ({
         url: `${TASKS_URL}/duplicate/${id}`,
@@ -41,7 +40,7 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       })
     }),
 
-    // ✏️ Update task
+    //  Update task
     updateTask: builder.mutation({
       query: (data) => ({
         url: `${TASKS_URL}/update/${data._id}`,
@@ -51,7 +50,7 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       })
     }),
 
-    // 🗑️ Move task to trash (soft delete)
+    //  Move task to trash (soft delete)
     trashedTask: builder.mutation({
       query: ({ id }) => ({
         url: `${TASKS_URL}/${id}`,
@@ -60,7 +59,7 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       })
     }),
 
-    // 🔽 Create subtask
+    //  Create subtask
     createSubTask: builder.mutation({
       query: ({ data, id }) => ({
         url: `${TASKS_URL}/create-subtask/${id}`,
@@ -70,7 +69,7 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       })
     }),
 
-    // 🔍 Get single task
+    //  Get single task
     getSingleTask: builder.query({
       query: (id) => ({
         url: `${TASKS_URL}/${id}`,
@@ -79,7 +78,7 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       })
     }),
 
-    // 📝 Post task activity
+    //  Post task activity
     postTaskActivity: builder.mutation({
       query: ({ data, id }) => ({
         url: `${TASKS_URL}/activity/${id}`,
@@ -89,7 +88,7 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       })
     }),
 
-    // ❌ Delete or restore task
+    //  Delete or restore task
     deleteRestoreTask: builder.mutation({
       query: ({ id, actionType }) => ({
         url: `${TASKS_URL}/delete-restore/${id}?actionType=${actionType}`,
@@ -100,7 +99,6 @@ export const taskApiSlice = apiSlice.injectEndpoints({
   })
 });
 
-// 🧩 Export hooks
 export const {
   useGetDashboardStatsQuery,
   useGetAllTaskQuery,
